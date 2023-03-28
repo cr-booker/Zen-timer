@@ -1,0 +1,31 @@
+{
+  "name": "zen-timer",
+  "version": "1.0.0",
+  "repository": {
+    "url": "git+https://github.com/cr-booker/zen-timer.git"
+  },
+  "description": "",
+  "main": "timer.js",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=development",
+    "watch": "webpack --watch",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.7.3",
+    "eslint": "^8.35.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-import": "^2.27.5",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "2.8.4",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.76.0",
+    "webpack-cli": "^5.0.1"
+  }
+}

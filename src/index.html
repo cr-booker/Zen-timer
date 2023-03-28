@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <title>Meditation Timer</title>
+</head>
+<body>
+  <div class="overlay grid-container">
+    <div class="home timer-config">
+      <div class="greeting-container">
+        <div class="greeting-icon-container">
+          <i class="greeting-icon material-icons md-48">light_mode</i>
+        </div>
+        <h1 id="timed-greeting">
+          Good Morning!
+        </h1>
+        <p class="timed-greeting-message">
+          Hope your day is off to a wonderful start
+        </p>
+      </div>
+      <div class="timer-settings">
+        <h2 class="flex-container align">
+          <i class="material-icons">timer</i>
+          Timer Settings
+        </h2>
+        <div class="settings-group settings-length-group flex-container">
+          <div class="flex-container align settings-timer-value-container">
+            <label for="timer-length-input"> Length: </label>
+            <span class="settings-timer-value">10</span>
+            <span>Mins</span>
+          </div>
+          <input id="timer-length-input" class="settings-timer-input" type="range" min="1" max="60" value="10" step="1" autocomplete="off">
+        </div>
+        <button class="launch-timer-btn flex-container align" type="button">
+          <span>Lets Begin</span>
+          <i class="material-icons">play_arrow</i>
+        </button>
+      </div>
+    </div>
+    <main class="app hide">
+      <div id="timer" class="timer flex-container">
+        <div class="timer-display flex-container">
+          <span class="time"></span>
+        </div>
+        <div class="timer-controls flex-container">
+          <button class="timer-control-btn timer-reset-btn" type="button">
+            <i class="material-icons md-48">refresh </i>
+          </button>
+          <button class="timer-control-btn timer-pause-btn" type="button">
+            <i class="material-icons md-48">pause</i>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>
