@@ -8,7 +8,7 @@
   "main": "timer.js",
   "private": "true",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build; webpack-dev-server --mode development --open",
     "build": "webpack --mode=development",
     "watch": "webpack --watch",
     "predeploy": "npm run build",
@@ -26,6 +26,7 @@
     "prettier": "2.8.4",
     "style-loader": "^3.3.2",
     "webpack": "^5.76.0",
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.1"
   }
 }
