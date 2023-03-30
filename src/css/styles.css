@@ -17,16 +17,16 @@ h1{
     text-align: center;
 }
 
+i{
+    pointer-events: none;
+}
+
 button{
     border: none;
     border-radius: 6px;
     color: white;
     background: rgba(0,0,0,.4);
-    transition: background .3s;
-}
-
-i{
-    pointer-events: none;
+    transition: background .5s ease;
 }
 
 button:hover{
@@ -168,8 +168,12 @@ body{
 
 .timer-control-btn{
     padding: .2em 1.5em;
+    transition: transform .2s;
 }
 
+.timer-control-btn:hover{
+    transform: scale(1.1);
+}
 
 .time{
     font-size: 3rem;
