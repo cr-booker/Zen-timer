@@ -32,6 +32,15 @@ function getTimerLength() {
   return length * 60;
 }
 
+function launchTimer() {
+  hideElement('.timer-config');
+  showElement('.app');
+  const timerLength = getTimerLength();
+  timer.setTimerLength(timerLength);
+  displayTime(timer.getTimerLength());
+  setTimeout(timer.startTimer, 350);
+}
+
 function settingsInit() {
   const timerInput = document.querySelector('.settings-timer-input');
   const timerInputDisplay = document.querySelector('.settings-timer-value');
@@ -46,20 +55,12 @@ function settingsInit() {
   });
 
   const StartBtn = document.querySelector('.launch-timer-btn');
-  StartBtn.addEventListener('click', startTimer);
+  StartBtn.addEventListener('click', launchTimer);
 }
 
 // =============== //
 // Timer Functions //
 // =============== //
-function startTimer() {
-  const timerLength = getTimerLength();
-  hideElement('.timer-config');
-  showElement('.app');
-  timer.setTimerLength(timerLength);
-  timer.startTimer();
-}
-
 function resetTimer() {
   timer.stopTimer();
   togglePauseBtnIcon();
