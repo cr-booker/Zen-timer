@@ -56,25 +56,30 @@ function startTimer() {
   const timerLength = getTimerLength();
   hideElement('.timer-config');
   showElement('.app');
-  timer.setTimeLimit(timerLength);
+  timer.setTimerLength(timerLength);
   timer.startTimer();
 }
 
 function resetTimer() {
   timer.stopTimer();
+  togglePauseBtnIcon();
   timer.resetTimer();
-  timer.startTimer();
+  displayTime(timer.getTimerLength());
 }
 
-function toggleTimerState(event) {
-  const icon = event.target.firstElementChild;
+function togglePauseBtnIcon() {
+  const icon = document.querySelector('.timer-pause-btn').firstElementChild;
+  icon.textContent = timer.isRunning() ? 'pause ' : 'play_arrow';
+}
+
+function toggleTimerState() {
   if (timer.isRunning()) {
-    icon.textContent = 'play_arrow';
     timer.stopTimer();
+    togglePauseBtnIcon();
     return;
   }
-  icon.textContent = 'pause';
   timer.startTimer();
+  togglePauseBtnIcon();
 }
 
 function playChime() {
