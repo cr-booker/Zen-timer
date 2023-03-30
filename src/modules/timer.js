@@ -3,16 +3,20 @@ export default function Timer(
   renderCallBack,
   { startCallback, endCallback } = {},
 ) {
-  let timeLimit = length;
-  let timeRemaining = timeLimit;
+  let timerLength = length;
+  let timeRemaining = timerLength;
   let timePassed = 0;
   let timeOutId = null;
   let lastTime = null;
   let running = false;
 
-  function setTimeLimit(tLimit) {
-    timeLimit = tLimit;
-    timeRemaining = timeLimit;
+  function setTimerLength(length) {
+    timerLength = length;
+    timeRemaining = timerLength;
+  }
+
+  function getTimerLength(formatted = true) {
+    return formatted === true ? formatTime(timerLength) : timerLength;
   }
 
   function isRunning() {
@@ -30,7 +34,7 @@ export default function Timer(
 
   function calculateTime() {
     timePassed += 1;
-    timeRemaining = timeLimit - timePassed;
+    timeRemaining = timerLength - timePassed;
     return formatTime(timeRemaining);
   }
 
@@ -48,7 +52,7 @@ export default function Timer(
   }
 
   function resetTimer() {
-    timeRemaining = timeLimit;
+    timeRemaining = timerLength;
     timeOutId = null;
     lastTime = null;
     timePassed = 0;
@@ -77,7 +81,8 @@ export default function Timer(
   }
   return {
     isRunning,
-    setTimeLimit,
+    getTimerLength,
+    setTimerLength,
     startTimer,
     resetTimer,
     stopTimer,
