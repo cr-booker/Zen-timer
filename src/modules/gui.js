@@ -11,6 +11,9 @@ function appInit() {
   timerInit();
 }
 
+// ========= //
+// Utilities //
+// ========= //
 function showElement(elementQuery) {
   const elementToHide = document.querySelector(elementQuery);
   elementToHide.classList.remove('hide');
@@ -21,44 +24,12 @@ function hideElement(elementQuery) {
   elementToHide.classList.add('hide');
 }
 
-function startTimer() {
-  const timerLength = getTimerLength();
-  hideElement('.timer-config');
-  showElement('.app');
-  timer.setTimeLimit(timerLength);
-  timer.startTimer();
-}
-
-function toggleTimerState(event) {
-  const icon = event.target.firstElementChild;
-  if (timer.isRunning()) {
-    icon.textContent = 'play_arrow';
-    timer.stopTimer();
-    return;
-  }
-  icon.textContent = 'pause';
-  timer.startTimer();
-}
-
-function resetTimer() {
-  timer.stopTimer();
-  timer.resetTimer();
-  timer.startTimer();
-}
-
+// ======================== //
+// Timer Settings functions //
+// ======================== //
 function getTimerLength() {
   const length = document.getElementById('timer-length-input').value;
   return length * 60;
-}
-
-function playChime() {
-  const chimeAudio = new Audio(chimeSfx);
-  chimeAudio.play();
-}
-
-function displayTime(time) {
-  const timeSpan = document.querySelector('.time');
-  timeSpan.innerHTML = time;
 }
 
 function settingsInit() {
@@ -76,6 +47,44 @@ function settingsInit() {
 
   const StartBtn = document.querySelector('.launch-timer-btn');
   StartBtn.addEventListener('click', startTimer);
+}
+
+// =============== //
+// Timer Functions //
+// =============== //
+function startTimer() {
+  const timerLength = getTimerLength();
+  hideElement('.timer-config');
+  showElement('.app');
+  timer.setTimeLimit(timerLength);
+  timer.startTimer();
+}
+
+function resetTimer() {
+  timer.stopTimer();
+  timer.resetTimer();
+  timer.startTimer();
+}
+
+function toggleTimerState(event) {
+  const icon = event.target.firstElementChild;
+  if (timer.isRunning()) {
+    icon.textContent = 'play_arrow';
+    timer.stopTimer();
+    return;
+  }
+  icon.textContent = 'pause';
+  timer.startTimer();
+}
+
+function playChime() {
+  const chimeAudio = new Audio(chimeSfx);
+  chimeAudio.play();
+}
+
+function displayTime(time) {
+  const timeSpan = document.querySelector('.time');
+  timeSpan.innerHTML = time;
 }
 
 function timerInit() {
