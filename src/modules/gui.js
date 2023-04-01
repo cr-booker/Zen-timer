@@ -7,6 +7,7 @@ const timer = Timer(undefined, displayTime, {
 });
 
 function appInit() {
+  setGreeting();
   settingsInit();
   timerInit();
 }
@@ -39,6 +40,39 @@ function launchTimer() {
   timer.setTimerLength(timerLength);
   displayTime(timer.getTimerLength());
   setTimeout(timer.startTimer, 350);
+}
+
+function getGreeting() {
+  const currentHour = new Date().getHours();
+  if (currentHour >= 5 && currentHour <= 11) {
+    return {
+      icon: 'sunny',
+      greeting: 'Good Morning',
+      message: 'Hope your day is as wonderful as you are.',
+    };
+  }
+  if (currentHour >= 12 && currentHour <= 17) {
+    return {
+      icon: 'wb_twilight',
+      greeting: 'Good Afternoon',
+      message: "Don't let anything dull your shine",
+    };
+  }
+  return {
+    icon: 'bedtime',
+    greeting: 'Good Evening',
+    message: 'Remember, every sunset promises a new dawn.',
+  };
+}
+
+function setGreeting() {
+  const greetingObj = getGreeting();
+  const icon = document.getElementById('greeting-icon');
+  const greeting = document.getElementById('timed-greeting');
+  const message = document.getElementById('greeting-message');
+  icon.textContent = greetingObj.icon;
+  greeting.textContent = greetingObj.greeting;
+  message.textContent = greetingObj.message;
 }
 
 function settingsInit() {
