@@ -79,7 +79,7 @@ body{
     color: white;
     gap: 2.75em;
     cursor: pointer;
-    border-bottom: 30px solid rgba(0,0,0,.6);
+    border-bottom: 25px solid rgba(0,0,0,.6);
 }
 
 .greeting-container{
@@ -132,10 +132,7 @@ body{
 	width: 225px;
 	justify-content: space-between;
     margin-top: 1em;
-    
 }
-
-
 
 .settings-timer-value-container{
     font-size: 1.22rem;
@@ -144,11 +141,10 @@ body{
 }
 
 .timer-display{
-    width: 300px;
+    width: clamp(18.75rem, 14.9rem + 19.25vw, 38rem);
+    height: clamp(18.75rem, 14.9rem + 19.25vw, 38rem);
     border: 4px solid white;
-    height: 300px;
     margin: 0 auto;
-    /* background: white; */
     border-radius: 100%;
     justify-content: center;
     align-items: center;
@@ -159,7 +155,7 @@ body{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 2em;
+	gap: 3em;
 }
 
 .timer-controls{
@@ -177,6 +173,7 @@ body{
 
 .time{
     font-size: 3rem;
+    font-size: clamp(3rem, 2.8rem + 1vw, 4rem);
 }
 
 
