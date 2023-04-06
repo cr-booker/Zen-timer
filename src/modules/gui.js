@@ -40,7 +40,6 @@ function getTimerLength() {
 function launchTimer() {
   hideElement('.timer-config');
   showElement('.app');
-  showElement('.back-btn-container');
   const timerLength = getTimerLength();
   timer.setTimerLength(timerLength);
   displayTime(timer.getTimerLength());
@@ -108,7 +107,6 @@ function closeTimer() {
   timer.stopTimer();
   timer.resetTimer();
   hideElement('.app');
-  hideElement('.back-btn-container');
   showElement('.timer-config');
 }
 
@@ -154,8 +152,8 @@ function timerInit() {
   const pauseBtn = document.querySelector('.timer-pause-btn');
   pauseBtn.addEventListener('click', toggleTimerState);
 
-  const backBtnContainer = document.querySelector('.back-btn-container');
-  backBtnContainer.addEventListener('click', closeTimer);
+  const homeBtn = document.querySelector('.home-btn');
+  homeBtn.addEventListener('click', closeTimer);
 }
 
 export { appInit };
