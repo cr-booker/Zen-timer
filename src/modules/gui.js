@@ -1,6 +1,10 @@
 import Timer from './timer';
 import chimeSfx from '../assets/audio/meditation-bell.mp3';
 
+const chimeAudio = new Audio(chimeSfx);
+chimeAudio.preload = 'auto';
+console.log(chimeAudio);
+
 const timer = Timer(undefined, displayTime, {
   startCallback: playChime,
   endCallback: playChime,
@@ -99,6 +103,8 @@ function settingsInit() {
 // Timer Functions //
 // =============== //
 function closeTimer() {
+  chimeAudio.pause();
+  chimeAudio.currentTime = 0;
   timer.stopTimer();
   timer.resetTimer();
   hideElement('.app');
@@ -114,8 +120,11 @@ function resetTimer() {
 }
 
 function playChime() {
-  const chimeAudio = new Audio(chimeSfx);
-  chimeAudio.play();
+  if (chimeAudio.paused) {
+    chimeAudio.play();
+  } else {
+    chimeAudio.currentTime = 0;
+  }
 }
 
 function displayTime(time) {
