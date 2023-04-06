@@ -2,7 +2,7 @@
   "name": "zen-timer",
   "version": "1.0.0",
   "repository": {
-    "url": "git+https://github.com/cr-booker/zen-timer.git"
+    "url": "git+https://github.com/cr-booker/Zen-timer.git"
   },
   "description": "",
   "main": "timer.js",
@@ -22,6 +22,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-import": "^2.27.5",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "prettier": "2.8.4",
     "style-loader": "^3.3.2",
