@@ -76,18 +76,20 @@ function setGreeting() {
   message.textContent = greetingObj.message;
 }
 
-function settingsInit() {
+function changeInputAbbr() {
   const timerInput = document.querySelector('.settings-timer-input');
   const timerInputDisplay = document.querySelector('.settings-timer-value');
+  if (timerInput.value == 1) {
+    timerInputDisplay.nextElementSibling.textContent = 'Min';
+  } else {
+    timerInputDisplay.nextElementSibling.textContent = 'Mins';
+  }
+  timerInputDisplay.textContent = timerInput.value;
+}
 
-  timerInput.addEventListener('input', () => {
-    if (timerInput.value == 1) {
-      timerInputDisplay.nextElementSibling.textContent = 'Min';
-    } else {
-      timerInputDisplay.nextElementSibling.textContent = 'Mins';
-    }
-    timerInputDisplay.textContent = timerInput.value;
-  });
+function settingsInit() {
+  const timerInput = document.querySelector('.settings-timer-input');
+  timerInput.addEventListener('input', changeInputAbbr);
 
   const StartBtn = document.querySelector('.launch-timer-btn');
   StartBtn.addEventListener('click', launchTimer);
