@@ -153,9 +153,9 @@ body{
 
 #timer {
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 3em;
+    justify-content: center;
+    align-items: center;
+	gap: 2.5em;
 }
 
 .timer-controls{
@@ -175,8 +175,6 @@ body{
     font-size: 3rem;
     font-size: clamp(3rem, 2.8rem + 1vw, 4rem);
 }
-
-
 
 /* @keyframes pulse {
     0% { box-shadow:none; }
